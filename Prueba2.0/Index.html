@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrazeria Reyes</title>
+    <style> 
+    html{
+      scroll-behavior: smooth;
+    }
+      body {
+        background: linear-gradient(to bottom, #fffcfc, #012049);
+        background-repeat: no-repeat;
+      }
+      @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  background: linear-gradient(to bottom, #012049, #fffcfc);
+  background-size: cover;
+  background-position: center;
+  animation: fadeIn 1s ease-in-out;
+  background-repeat: no-repeat;
+}
+.top-bar {
+  min-width: 100px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000;
+  padding: 10px 350px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.logo {
+  width: 150px;
+  height: 140px;
+  margin-left: -250px;
+}
+.logo-container {
+  margin-right: 20px;
+}
+.menu {
+  margin-left: 120px;
+}
+.menu {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+@font-face {
+  font-family: "Kiona-Regular";
+  src: url("Kiona-Regular.ttf");
+}
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 30px;
+  transition: font-size 0.3s;
+  font-family: "Kiona-Regular", sans-serif;
+}
+.menu a:hover {
+  font-size: 37px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card {
+  min-width: 100px;
+  width: 300px;
+  margin: 20px 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 400ms ease;
+  margin-left: 90px;
+}
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3%);
+}
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.card .contenido {
+  padding: 15px;
+  text-align: center;
+}
+.card .contenido p {
+  line-height: 1.5;
+  color: #6a6a6a;
+}
+.card .contenido h3 {
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.card .contenido a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  color: #2fb4cc;
+  border: 1px solid #2fb4cc;
+  border-radius: 4px;
+  transition: all 400ms ease;
+}
+.card .contenido a:hover {
+  background: #2fb4cc;
+  color: #ffffff;
+}
+------------------------------------------------------------------------
+.location-container {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  animation: expandAnimation 1s ease-in-out;
+}
+.location-bar {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25px;
+  transition: font-size 0.3s;
+  font-family: "Kiona-Regular", sans-serif;
+  background-image: radial-gradient(circle, #012049, #000000);
+  background-size: cover;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+.container {
+  display: flex;
+  gap: 100px;
+  min-width: 300px;
+}
+.map {
+  position: static;
+  left: 75px;
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px;
+}
+.text {
+  flex: 2;
+  margin: 20px;
+  border-radius: 10px;
+  width: 50%;
+  height: 400px;
+  background-image: radial-gradient(circle, #000000, #012049);
+  padding: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  transition: font-size 0.3s;
+  font-family: "Kiona-Regular", sans-serif;
+}
+.top-bar {
+  z-index: 2;
+}
+#Descripciones {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  top: -50px;
+  bottom: 110px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 0;
+  padding: 15px;
+  background-image: radial-gradient(circle, #012049, #000000);
+  text-decoration: none;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.custom-container__slider {
+  max-width: 1000px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+  position: relative;
+  top: -300px;
+}
+input[type=radio] {
+  display: none;
+}
+
+.custom-container {
+  width: 800px;
+  height: 600px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.custom-card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+#custom-item-2:checked ~ .custom-cards #custom-selector-1,
+#custom-item-1:checked ~ .custom-cards #custom-selector-3,
+#custom-item-3:checked ~ .custom-cards #custom-selector-2 {
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.6;
+  z-index: 0;
+}
+#custom-item-3:checked ~ .custom-cards #custom-selector-1,
+#custom-item-1:checked ~ .custom-cards #custom-selector-2,
+#custom-item-2:checked ~ .custom-cards #custom-selector-3 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.6;
+  z-index: 0;
+}
+#custom-item-1:checked ~ .custom-cards #custom-selector-1,
+#custom-item-2:checked ~ .custom-cards #custom-selector-2,
+#custom-item-3:checked ~ .custom-cards #custom-selector-3 {
+  transform: translateX(0) scale(1);
+  z-index: 1;
+}
+.custom-cards .card img {
+  display: block;
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  padding: 0 50px 100px;
+  position: relative;
+  top: -300px;
+}
+.card-about {
+  display: flex;
+  width: 800px;
+  height: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+}
+.about-header {
+  border-right: 1px solid #ddd;
+}
+.descripcion {
+  background: #fbfbfb;
+}
+.about-header,
+.descripcion {
+  padding: 20px;
+  text-align: center;
+}
+.about-header a {
+  position: relative;
+  display: block;
+}
+.about-header img {
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.06);
+  margin: 50px 30px 30px;
+  transition: .2s;
+  width: 150px;
+  height: 150px;
+}
+.about-header a:hover img {
+  box-shadow: 0 0 0 12px rgba(0, 0, 0, 0.1);
+}
+.about-header h2 {
+  color: #f0522a;
+}
+.about-header h4 {
+  margin-bottom: 20px;
+}
+.descripcion {
+  position: relative;
+}
+.descripcion p {
+  margin: 20px 30px;
+}
+.descripcion .social {
+  margin-top: 25px;
+}
+.descripcion .social a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #f0522a;
+  text-decoration: none;
+  transition: color .2s;
+}
+.descripcion .social a:hover {
+  color: #666;
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  padding: 0 50px 100px;
+  position: relative;
+  top: -300px;
+}
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.contact-header h1 {
+  color: #f0522a;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.contact-header p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 0;
+}
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.input-group {
+  width: 300px;
+  margin: 15px;
+}
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.input-group button {
+  background-color: #f0522a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.input-group button:hover {
+  background-color: #d1401d;
+}
+.footer {
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.footer p {
+  margin: 0;
+}
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+    </style>
+    <script src="https://kit.fontawesome.com/b1a1465e55.js" crossorigin="anonymous"></script>
+</head>
+<br>
+<body>
+  <div class="top-bar">
+    <img class="logo" src="Imagenes/TERRAZA REYEZ.png" alt="Logo">
+    <div class="menu">
+      <a href="#">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#nosotros">Contacto</a>
+      <a href="#nosotros">Redes</a>
+    </div>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="container">
+    <div class="card">
+      <figure>
+        <img src="Imagenes/img2.jpg">
+      </figure>
+      <div class="contenido">
+        <h3>Interior</h3>
+        <p>
+          Sumérgete en un mundo de diseño interior vanguardista, donde la fusión entre creatividad y funcionalidad te sorprenderá.</p>
+        <a href="#Descripciones">Leer mas</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <img src="Imagenes/img3.jpg">
+      </figure>
+      <div class="contenido">
+        <h3>Mesas</h3>
+        <p>Descubre una nueva experiencia en diseño y funcionalidad con nuestras mesas exclusivas. Cada una de nuestras creaciones refleja la esencia de la elegancia contemporánea y la atención meticulosa a los detalles.</p>
+        <a href="#Descripciones">Leer mas</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <img src="Imagenes/img4.jpg">
+      </figure>
+      <div class="contenido">
+        <h3>Exterior</h3>
+        <p>Descubre un paisaje exterior cautivador, donde la armonía entre belleza y funcionalidad crea una experiencia sin igual.</p>
+        <a href="#Descripciones">Leer mas</a>
+      </div>
+    </div>
+</div>
+
+<div class="location-container">
+  <div class="location-bar">
+    <center><p>Donde nos encontramos</p></center>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3734.901332502458!2d-103.3242337!3d20.5920866!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3f0d9b4e933%3A0x637cf25fee7d182f!2sTERRAZA%20REYES!5e0!3m2!1ses-419!2smx!4v1687464306731!5m2!1ses-419!2smx" width="100%" height="440" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="text">
+    <h2>Ubicación de Terraza Reyes</h2>
+    <p>Terraza Reyes se encuentra ubicada en:</p>
+    <p>San Pedro 2-1, La Guadalupana,</p>
+    <p>45595 San Pedro Tlaquepaque, Jalisco.</p>
+    <p>Contamos con una ubicación estratégica que nos permite estar cerca de diversos puntos de interés en la ciudad. Nuestro establecimiento se encuentra en una zona tranquila y accesible, ideal para disfrutar de momentos especiales con familia y amigos.</p>
+    <p>Además de nuestras instalaciones amplias y cómodas, nuestra ubicación ofrece facilidades de estacionamiento y acceso desde diferentes vías principales. Estamos comprometidos en brindar a nuestros clientes una experiencia única en un entorno agradable y conveniente.</p>
+    <p>¡Ven a visitarnos y descubre por qué Terraza Reyes es el lugar perfecto para celebrar tus eventos y disfrutar de momentos inolvidables!</p>
+  </div>
+  <br>
+<div id="Descripciones">
+  <h2>Descripciones</h2>
+  <div class="section">
+    <h3>Interior:</h3>
+    <p>Explora un mundo de diseño interior vanguardista donde la fusión entre creatividad y funcionalidad te sorprenderá. Sumérgete en espacios cuidadosamente diseñados que combinan estilos modernos, líneas elegantes y una paleta de colores sofisticada. Cada rincón está meticulosamente decorado para crear una atmósfera armoniosa y acogedora. Descubre una experiencia única que despierta tus sentidos y te invita a disfrutar de la belleza y comodidad en cada detalle.</p>
+  </div>
+  <div class="section">
+    <h3>Mesas:</h3>
+    <p>Sumérgete en el universo de nuestras mesas exclusivas y descubre una nueva dimensión de diseño y funcionalidad. Cada una de nuestras creaciones es una obra de arte que refleja la esencia de la elegancia contemporánea y la atención meticulosa a los detalles. Nuestras mesas combinan formas geométricas innovadoras con materiales de alta calidad, creando piezas únicas que se destacan en cualquier ambiente. Experimenta la perfecta armonía entre estilo y utilidad con nuestras mesas que se convierten en el centro de atención en cualquier espacio.</p>
+  </div>
+  <div class="section">
+    <h3>Exterior:</h3>
+    <p>Adéntrate en un paisaje exterior cautivador donde la naturaleza y el diseño se unen en perfecta armonía. Descubre espacios al aire libre diseñados para brindarte momentos de relajación y conexión con la naturaleza. Nuestro enfoque paisajístico resalta la belleza de los elementos naturales, combinando materiales duraderos y sostenibles con un diseño elegante. Disfruta de la exuberante terraza acogedora y áreas de descanso que te invitan a desconectar y disfrutar de un entorno sereno. Explora un nuevo concepto de exteriorismo que combina estilo y funcionalidad para crear espacios únicos y encantadores.</p>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="custom-container__slider">
+  <div class="custom-container">
+    <input type="radio" name="custom-slider" id="custom-item-1" checked>
+    <input type="radio" name="custom-slider" id="custom-item-2">
+    <input type="radio" name="custom-slider" id="custom-item-3">
+
+    <div class="custom-cards">
+      <label class="custom-card" for="custom-item-1" id="custom-selector-1">
+        <img src="Imagenes/1.jpg">
+      </label>
+      <label class="custom-card" for="custom-item-2" id="custom-selector-2">
+        <img src="Imagenes/3.jpg">
+      </label>
+      <label class="custom-card" for="custom-item-3" id="custom-selector-3">
+        <img src="Imagenes/img3.jpg">
+      </label>
+    </div>
+  </div>
+</div>
+<div class="about-container" id="nosotros">
+  <div class="card-about">
+    <div class="about-header">
+      <a href="#">
+        <img src="Imagenes/TERRAZA REYEZ negro.png" alt="">
+      </a>
+      <h2>Alejandro Reyes</h2>
+      <h4>Familia Reyes</h4>
+    </div>
+    <div class="descripcion">
+      <p>¡Bienvenidos a la Terraza!
+        La Familia Reyes es un conjunto de personas que, más que solo trabajar juntos, nos consideramos una verdadera familia. Desde hace más de una década, nos hemos esforzado en ofrecer un espacio donde la calidad, el servicio y el disfrute sean nuestra máxima prioridad.
+        ¡Saludos afectuosos y hasta pronto!</p>
+        Familia Reyes.
+        <P>Contactos: </P>
+        <p>Alejandro Reyes:3333736228</p>
+        <p>Omar Reyes:3329320059</p>
+        
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=100085843822905&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/terraza.reyes/?igshid=ZDc4ODBmNjlmNQ%3D%3D"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  © 2023 Terrazeria Reyes. Todos los derechos reservados.
+</div>
+</body>
+</html>
+
